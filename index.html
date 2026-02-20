@@ -72,6 +72,181 @@
     </style> 
   </head> 
   <body> 
+    <header class="site-header">
+  <div class="container header-grid">
+    <div class="hero-text">
+      <p class="kicker">Portfolio</p>
+      <h1>Pedro Teixeira Andrade</h1>
+      <p class="subtitle">
+        Data Science & AI + Finance student. Projects in analytics, GIS, and sports data.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#" target="_blank" rel="noopener">Download Resume</a>
+        <a class="btn" href="mailto:your.email@miami.edu">Contact</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- ✅ Picture goes here -->
+    <div class="hero-photo">
+      <!-- Put your image file in the same folder as this HTML, or adjust path -->
+      <img
+        src="headshot.jpg"
+        alt="Headshot of Pedro Teixeira Andrade"
+        class="profile-img"
+      />
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section" aria-labelledby="projects-title">
+    <div class="section-head">
+      <h2 id="projects-title">Projects</h2>
+      <p class="muted">
+        Selected work focused on analytics, modeling, and real-world decision-making.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <!-- 1) NFL Bet Tracker -->
+      <article class="card">
+        <div class="card-top">
+          <h3>NFL Bet Tracker (Live Win Probability)</h3>
+          <p class="muted">
+            Web app that tracks multiple bets (Moneyline, Spread, Over/Under) and updates the
+            probability of hitting in real-time based on score and time remaining.
+          </p>
+        </div>
+        <ul class="bullets">
+          <li>Built a “Betting Hub” dashboard to display active bets with live updates every 5 seconds.</li>
+          <li>Implemented probability logic using score differential + time remaining (game state modeling).</li>
+          <li>Designed for clarity: users input spreads (e.g., -3.5) and see an evolving hit chance.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python/JS</span>
+          <span class="tag">Probability</span>
+          <span class="tag">Dashboard UI</span>
+          <span class="tag">Live Updates</span>
+        </div>
+        <div class="links">
+          <a href="#" target="_blank" rel="noopener">Demo</a>
+          <a href="#" target="_blank" rel="noopener">Code</a>
+        </div>
+      </article>
+
+      <!-- 2) GIS Raster Suitability Analysis -->
+      <article class="card">
+        <div class="card-top">
+          <h3>GIS Raster Suitability Model (Weighted Overlay)</h3>
+          <p class="muted">
+            Built a raster-based suitability map using reclassification, weighted overlays, and area
+            reporting by suitability class.
+          </p>
+        </div>
+        <ul class="bullets">
+          <li>Reclassified criteria rasters into standardized scores and combined using adjustable weights.</li>
+          <li>Produced formal map layouts (title, legend, scale bar, north arrow) and class area summaries.</li>
+          <li>Validated outputs by checking class bins and data types through the workflow.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">ArcGIS Pro</span>
+          <span class="tag">Raster Analysis</span>
+          <span class="tag">Weighted Overlay</span>
+          <span class="tag">Cartography</span>
+        </div>
+        <div class="links">
+          <a href="#" target="_blank" rel="noopener">Map PDF</a>
+          <a href="#" target="_blank" rel="noopener">Write-up</a>
+        </div>
+      </article>
+
+      <!-- 3) Climate Change Data Project (R) -->
+      <article class="card">
+        <div class="card-top">
+          <h3>Climate Change Trends in U.S. Weather (R Project)</h3>
+          <p class="muted">
+            Data analysis project exploring long-term temperature and weather pattern shifts using
+            statistical summaries and visualizations.
+          </p>
+        </div>
+        <ul class="bullets">
+          <li>Cleaned and structured multi-year climate datasets for analysis.</li>
+          <li>Generated trend visuals and summary statistics to compare regions/time periods.</li>
+          <li>Documented assumptions and results in a reproducible workflow.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">R</span>
+          <span class="tag">Data Cleaning</span>
+          <span class="tag">Visualization</span>
+          <span class="tag">Time Series</span>
+        </div>
+        <div class="links">
+          <a href="#" target="_blank" rel="noopener">Report</a>
+          <a href="#" target="_blank" rel="noopener">Code</a>
+        </div>
+      </article>
+
+      <!-- 4) KNN Classifier / ML Assignment -->
+      <article class="card">
+        <div class="card-top">
+          <h3>KNN Classifier (Machine Learning Lab)</h3>
+          <p class="muted">
+            Implemented and evaluated a K-Nearest Neighbors model, focusing on feature vectors,
+            distance metrics, and model accuracy.
+          </p>
+        </div>
+        <ul class="bullets">
+          <li>Constructed feature vectors, handled orientation/shape issues, and validated model inputs.</li>
+          <li>Tested performance across multiple values of K and compared outcomes.</li>
+          <li>Presented results with clear interpretation of what changed accuracy and why.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">KNN</span>
+          <span class="tag">Model Evaluation</span>
+        </div>
+        <div class="links">
+          <a href="#" target="_blank" rel="noopener">Notebook</a>
+          <a href="#" target="_blank" rel="noopener">Code</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="skills-title">
+    <div class="section-head">
+      <h2 id="skills-title">Skills</h2>
+      <p class="muted">Tools and strengths I use across projects.</p>
+    </div>
+
+    <div class="skills">
+      <div class="pill">Python</div>
+      <div class="pill">R</div>
+      <div class="pill">SQL</div>
+      <div class="pill">NumPy / Pandas</div>
+      <div class="pill">ArcGIS Pro</div>
+      <div class="pill">Data Visualization</div>
+      <div class="pill">Statistical Analysis</div>
+      <div class="pill">Financial Modeling (NPV/IRR)</div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p class="muted">© <span id="year"></span> Pedro Teixeira Andrade</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
     <header> 
       <h1>Foo Bar</h1> 
       <p>Test Test</p> 
