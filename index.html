@@ -3,38 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pedro Teixeira Andrade | Projects</title>
+    <title>Pedro Teixeira | Projects</title>
+    <meta
+      name="description"
+      content="Projects portfolio for Pedro Teixeira  — Data Science & AI, Finance, and GIS."
+    />
 
     <style>
       :root{
         --bg:#0b1220;
         --card:#111b2e;
+        --card2: rgba(17,27,46,.70);
         --muted:#a9b6d3;
         --text:#eaf0ff;
         --line:rgba(255,255,255,.10);
         --chip:rgba(255,255,255,.08);
         --shadow: 0 12px 30px rgba(0,0,0,.35);
+        --shadow2: 0 10px 24px rgba(0,0,0,.30);
+        --radius: 20px;
+
+        --accent1: rgba(102,149,255,1);
+        --accent2: rgba(71,220,172,1);
+        --accentLine: rgba(102,149,255,.55);
       }
 
       *{ box-sizing:border-box; }
       html,body{ height:100%; }
       body{
         margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple Color Emoji","Segoe UI Emoji";
         background:
           radial-gradient(1200px 600px at 20% -10%, rgba(102, 149, 255,.35), transparent 60%),
           radial-gradient(900px 500px at 90% 10%, rgba(71, 220, 172,.25), transparent 55%),
           radial-gradient(900px 700px at 30% 120%, rgba(243, 169, 60,.20), transparent 60%),
           var(--bg);
         color:var(--text);
-        line-height:1.45;
+        line-height:1.55;
       }
 
       a{ color:inherit; text-decoration:none; }
       .container{
         width:min(1100px, 92vw);
         margin:0 auto;
-        padding:32px 0 60px;
+        padding:32px 0 64px;
       }
 
       /* Top nav */
@@ -49,26 +61,29 @@
         background:rgba(17,27,46,.65);
         backdrop-filter: blur(10px);
         box-shadow: var(--shadow);
+        position: sticky;
+        top: 14px;
+        z-index: 10;
       }
       .brand{
         display:flex;
         align-items:center;
         gap:12px;
-        font-weight:700;
+        font-weight:800;
         letter-spacing:.2px;
       }
       .dot{
         width:10px;height:10px;border-radius:999px;
-        background:linear-gradient(135deg, rgba(102,149,255,1), rgba(71,220,172,1));
+        background:linear-gradient(135deg, var(--accent1), var(--accent2));
         box-shadow:0 0 18px rgba(71,220,172,.35);
       }
       .navlinks{
         display:flex;
         align-items:center;
-        gap:14px;
+        gap:10px;
         flex-wrap:wrap;
         color:var(--muted);
-        font-weight:600;
+        font-weight:700;
         font-size:14px;
       }
       .navlinks a{
@@ -81,38 +96,45 @@
         border-color: var(--line);
         background: rgba(255,255,255,.04);
       }
-
-      /* Hero */
-      .hero{
-        margin-top:26px;
-        display:grid;
-        grid-template-columns: 1.15fr .85fr;
-        gap:22px;
-        align-items:stretch;
-      }
-      @media (max-width: 900px){
-        .hero{ grid-template-columns:1fr; }
+      .navlinks a:focus-visible{
+        outline: 2px solid rgba(102,149,255,.75);
+        outline-offset: 2px;
       }
 
+      /* Cards */
       .card{
         border:1px solid var(--line);
-        background:rgba(17,27,46,.70);
+        background:var(--card2);
         backdrop-filter: blur(10px);
-        border-radius:20px;
+        border-radius:var(--radius);
         padding:22px;
         box-shadow: var(--shadow);
       }
 
+      /* Hero */
+      .hero{
+        margin-top:22px;
+        display:grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap:18px;
+        align-items:stretch;
+      }
+      @media (max-width: 900px){
+        .nav{ position: static; }
+        .hero{ grid-template-columns:1fr; }
+      }
+
       .headline{
         margin:0;
-        font-size:36px;
-        line-height:1.1;
-        letter-spacing:-.5px;
+        font-size:38px;
+        line-height:1.08;
+        letter-spacing:-.8px;
       }
       .subhead{
         margin:14px 0 0;
         color:var(--muted);
         font-size:16px;
+        max-width: 62ch;
       }
 
       .pillrow{
@@ -131,9 +153,9 @@
         background: var(--chip);
         color:var(--text);
         font-size:13px;
-        font-weight:600;
+        font-weight:700;
       }
-      .pill span{ color:var(--muted); font-weight:700; }
+      .pill span{ color:var(--muted); font-weight:900; }
 
       .ctaRow{
         margin-top:18px;
@@ -141,6 +163,7 @@
         gap:12px;
         flex-wrap:wrap;
       }
+
       .btn{
         display:inline-flex;
         align-items:center;
@@ -151,14 +174,23 @@
         border:1px solid var(--line);
         background: rgba(255,255,255,.04);
         color:var(--text);
-        font-weight:700;
+        font-weight:800;
         font-size:14px;
         cursor:pointer;
+        transition: transform .08s ease, background .12s ease;
       }
-      .btn:hover{ background: rgba(255,255,255,.07); }
+      .btn:hover{
+        background: rgba(255,255,255,.07);
+        transform: translateY(-1px);
+      }
+      .btn:active{ transform: translateY(0px); }
+      .btn:focus-visible{
+        outline: 2px solid rgba(102,149,255,.75);
+        outline-offset: 2px;
+      }
       .btn.primary{
-        border-color: rgba(102,149,255,.55);
-        background: linear-gradient(135deg, rgba(102,149,255,.18), rgba(71,220,172,.10));
+        border-color: var(--accentLine);
+        background: linear-gradient(135deg, rgba(102,149,255,.20), rgba(71,220,172,.10));
       }
 
       /* Profile card */
@@ -168,47 +200,59 @@
         gap:14px;
         height:100%;
       }
+
       .photoWrap{
         display:flex;
         align-items:center;
         gap:14px;
       }
+
+      /* ✅ FIX: square/rounded image that matches the frame (no circle-in-square weirdness) */
       .avatar{
         width:140px;
         height:140px;
-        border-radius:50%;
+        border-radius:18px;
         overflow:hidden;
         border:1px solid var(--line);
-        box-shadow:0 10px 24px rgba(0,0,0,.35);
+        box-shadow:var(--shadow2);
+        background: rgba(255,255,255,.02);
+        flex: 0 0 auto;
       }
       .avatar img{
         width:100%;
         height:100%;
         object-fit:cover;
-        object-position:center top;
-        border-radius:50%;
+
+        /* tweak this if it cuts your forehead: */
+        object-position: center 20%;
         display:block;
       }
+
       .who{
         display:flex;
         flex-direction:column;
         gap:4px;
+        min-width: 0;
       }
       .who .name{
         font-size:18px;
-        font-weight:800;
+        font-weight:900;
         letter-spacing:.2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .who .role{
         color:var(--muted);
-        font-weight:650;
+        font-weight:750;
         font-size:14px;
       }
+
       .mini{
         display:grid;
         grid-template-columns:1fr 1fr;
         gap:10px;
-        margin-top:4px;
+        margin-top:6px;
       }
       .mini .miniCard{
         border:1px solid var(--line);
@@ -216,16 +260,28 @@
         padding:12px;
         background: rgba(255,255,255,.04);
       }
-      .mini .k{ color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.3px; text-transform:uppercase;}
-      .mini .v{ margin-top:6px; font-size:14px; font-weight:750; }
+      .mini .k{
+        color:var(--muted);
+        font-size:12px;
+        font-weight:900;
+        letter-spacing:.3px;
+        text-transform:uppercase;
+      }
+      .mini .v{
+        margin-top:6px;
+        font-size:14px;
+        font-weight:850;
+      }
 
-      /* Projects */
+      /* Sections */
       .sectionTitle{
-        margin:28px 0 12px;
+        margin:26px 0 12px;
         font-size:18px;
         font-weight:900;
         letter-spacing:.2px;
       }
+
+      /* Projects grid */
       .grid{
         display:grid;
         grid-template-columns: repeat(2, 1fr);
@@ -234,6 +290,7 @@
       @media (max-width: 900px){
         .grid{ grid-template-columns:1fr; }
       }
+
       .proj{
         display:flex;
         flex-direction:column;
@@ -253,7 +310,7 @@
       .tag{
         flex:0 0 auto;
         font-size:12px;
-        font-weight:800;
+        font-weight:900;
         color:rgba(255,255,255,.92);
         border:1px solid var(--line);
         background: rgba(255,255,255,.04);
@@ -268,13 +325,13 @@
       .bullets{
         margin:0;
         padding-left:18px;
-        color:var(--text);
       }
       .bullets li{
         margin:6px 0;
         color:rgba(233,240,255,.92);
         font-size:14px;
       }
+
       .chips{
         display:flex;
         flex-wrap:wrap;
@@ -283,31 +340,63 @@
       }
       .chip{
         font-size:12px;
-        font-weight:750;
+        font-weight:850;
         color:rgba(233,240,255,.92);
         border:1px solid var(--line);
         background: rgba(255,255,255,.03);
         padding:6px 10px;
         border-radius:999px;
       }
+
       .projActions{
         display:flex;
         gap:10px;
         flex-wrap:wrap;
         margin-top:2px;
       }
+
       .smallBtn{
         padding:9px 11px;
         border-radius:12px;
         border:1px solid var(--line);
         background: rgba(255,255,255,.04);
-        font-weight:800;
+        font-weight:900;
         font-size:13px;
-        cursor:pointer;
+        transition: transform .08s ease, background .12s ease;
       }
-      .smallBtn:hover{ background: rgba(255,255,255,.07); }
+      .smallBtn:hover{
+        background: rgba(255,255,255,.07);
+        transform: translateY(-1px);
+      }
+      .smallBtn:active{ transform: translateY(0px); }
+      .smallBtn:focus-visible{
+        outline: 2px solid rgba(102,149,255,.75);
+        outline-offset: 2px;
+      }
 
-      /* Footer */
+      /* Skills section */
+      .skillsGrid{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:16px;
+      }
+      @media (max-width: 900px){
+        .skillsGrid{ grid-template-columns:1fr; }
+      }
+      .skillCard h3{
+        margin:0 0 10px;
+        font-size:16px;
+        letter-spacing:-.2px;
+      }
+      .skillList{
+        margin:0;
+        padding-left:18px;
+        color:rgba(233,240,255,.92);
+      }
+      .skillList li{ margin:7px 0; }
+
+      /* Contact */
+      .muted{ color: var(--muted); }
       .footer{
         margin-top:22px;
         color:rgba(169,182,211,.9);
@@ -323,57 +412,57 @@
       <header class="nav">
         <div class="brand">
           <div class="dot"></div>
-          <div>Pedro Teixeira Andrade</div>
+          <div>Pedro Teixeira</div>
         </div>
-        <nav class="navlinks">
+        <nav class="navlinks" aria-label="Primary">
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
 
-      <section class="hero">
+      <section class="hero" aria-label="Intro">
         <div class="card">
-          <h1 class="headline">Projects that tell the story.</h1>
+          <h1 class="headline">Projects that show how I think.</h1>
           <p class="subhead">
-            Data Science & AI + Finance student. I build practical analytics projects—from spatial
-            suitability models to probability-based sports dashboards.
+            Data Science & AI + Finance student building practical analytics—probability dashboards,
+            GIS suitability models, and data-driven decision tools.
           </p>
 
           <div class="pillrow">
-            <div class="pill"><span>Focus:</span> Analytics • Data Science • Finance</div>
+            <div class="pill"><span>Focus:</span> Analytics • Modeling • Product Thinking</div>
             <div class="pill"><span>Tools:</span> Python • R • SQL • ArcGIS Pro</div>
-            <div class="pill"><span>Interests:</span> Modeling • Visualization • Decision-making</div>
+            <div class="pill"><span>Strength:</span> Clear insights + clean UI</div>
           </div>
 
           <div class="ctaRow">
-            <!-- Replace these with your real links -->
             <a class="btn primary" href="#projects">View Projects ↓</a>
+
+            <!-- Replace these with your real links -->
             <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
 
-        <aside class="card profile">
+        <aside class="card profile" aria-label="Profile">
           <div class="photoWrap">
             <div class="avatar">
-              <!-- Put your generated pro headshot in the same folder as this HTML and name it: headshot.jpg -->
-              <img src="headshot.jpg" alt="Pedro headshot" />
+              <img src="headshot.jpg" alt="Headshot of Pedro Teixeira" />
             </div>
             <div class="who">
-              <div class="name">Pedro Teixeira Andrade</div>
+              <div class="name">Pedro Teixeira </div>
               <div class="role">Data Science & AI • Finance • Environmental Science (minor)</div>
             </div>
           </div>
 
-          <div class="mini" id="skills">
+          <div class="mini">
             <div class="miniCard">
               <div class="k">Core</div>
               <div class="v">Analytics + Modeling</div>
             </div>
             <div class="miniCard">
               <div class="k">Strength</div>
-              <div class="v">Clear dashboards</div>
+              <div class="v">Dashboards</div>
             </div>
             <div class="miniCard">
               <div class="k">Stack</div>
@@ -386,15 +475,15 @@
           </div>
 
           <div class="projActions">
-            <button class="smallBtn" onclick="scrollToId('contact')">Email Me</button>
-            <button class="smallBtn" onclick="scrollToId('projects')">See Work</button>
+            <a class="smallBtn" href="#contact">Email Me</a>
+            <a class="smallBtn" href="#projects">See Work</a>
           </div>
         </aside>
       </section>
 
       <h2 class="sectionTitle" id="projects">Featured Projects</h2>
 
-      <section class="grid">
+      <section class="grid" aria-label="Projects grid">
         <!-- Project 1 -->
         <article class="card proj">
           <div class="projTop">
@@ -402,13 +491,13 @@
             <div class="tag">Web / Analytics</div>
           </div>
           <p>
-            Built a lightweight betting hub that tracks multiple bets (moneyline, spread, over/under)
-            and updates a live “chance to hit” metric based on game state.
+            Built a lightweight betting hub to track multiple bet types (moneyline, spread, over/under)
+            and update a live “chance to hit” metric based on game state.
           </p>
           <ul class="bullets">
-            <li>Modeled probability updates using score differential + time remaining.</li>
-            <li>Supported multiple bet entries and displayed them in a central dashboard.</li>
-            <li>Designed for fast refresh (ex: updating every ~5 seconds) and clean UX.</li>
+            <li>Calculated probability updates using score differential + time remaining.</li>
+            <li>Supported multiple bet entries and a centralized “Betting Hub” view.</li>
+            <li>Designed for frequent refresh with clean, readable UI.</li>
           </ul>
           <div class="chips">
             <div class="chip">JavaScript</div>
@@ -416,8 +505,9 @@
             <div class="chip">UI Dashboard</div>
           </div>
           <div class="projActions">
-            <button class="smallBtn" onclick="alert('Add your GitHub link in the code!')">Code</button>
-            <button class="smallBtn" onclick="alert('Add a demo link in the code!')">Demo</button>
+            <!-- Replace hrefs with real links when you have them -->
+            <a class="smallBtn" href="https://github.com/" target="_blank" rel="noreferrer">Code</a>
+            <a class="smallBtn" href="#" aria-disabled="true" title="Add your demo link when ready">Demo</a>
           </div>
         </article>
 
@@ -428,13 +518,13 @@
             <div class="tag">GIS / Spatial</div>
           </div>
           <p>
-            Created a multi-criteria suitability surface using reclassification + weighted overlay,
+            Created a multi-criteria suitability surface using reclassification and weighted overlay,
             then summarized area by suitability class for reporting.
           </p>
           <ul class="bullets">
-            <li>Reclassified inputs into standardized scales and combined with weights.</li>
-            <li>Generated formal map layouts (title, legend, scale bar, north arrow).</li>
-            <li>Calculated area totals by class (km² / mi²) for analysis and write-up.</li>
+            <li>Standardized inputs with reclassification and combined layers with weights.</li>
+            <li>Produced formal map layouts (title, legend, scale bar, north arrow).</li>
+            <li>Calculated area totals by suitability class (km² / mi²) for analysis.</li>
           </ul>
           <div class="chips">
             <div class="chip">ArcGIS Pro</div>
@@ -442,8 +532,8 @@
             <div class="chip">Weighted Overlay</div>
           </div>
           <div class="projActions">
-            <button class="smallBtn" onclick="alert('Add your map PDF / screenshots link here!')">Map</button>
-            <button class="smallBtn" onclick="alert('Add a write-up link here!')">Write-up</button>
+            <a class="smallBtn" href="#" aria-disabled="true" title="Add your PDF/map link">Map</a>
+            <a class="smallBtn" href="#" aria-disabled="true" title="Add your write-up link">Write-up</a>
           </div>
         </article>
 
@@ -454,13 +544,13 @@
             <div class="tag">Data / R</div>
           </div>
           <p>
-            Analyzed long-term temperature and weather trends across the U.S., focusing on patterns,
-            visualization, and interpretation for non-technical audiences.
+            Analyzed long-term temperature and weather trends across the U.S., focusing on time-series
+            patterns and communicating insights clearly.
           </p>
           <ul class="bullets">
             <li>Cleaned and transformed time-series climate datasets.</li>
             <li>Created trend visuals and summary statistics to compare regions/time periods.</li>
-            <li>Framed results as insights for decision-making and communication.</li>
+            <li>Translated results into decision-oriented insights for non-technical audiences.</li>
           </ul>
           <div class="chips">
             <div class="chip">R</div>
@@ -468,8 +558,8 @@
             <div class="chip">Visualization</div>
           </div>
           <div class="projActions">
-            <button class="smallBtn" onclick="alert('Add your R notebook / report link here!')">Report</button>
-            <button class="smallBtn" onclick="alert('Add your GitHub link here!')">Code</button>
+            <a class="smallBtn" href="#" aria-disabled="true" title="Add your report link">Report</a>
+            <a class="smallBtn" href="https://github.com/" target="_blank" rel="noreferrer">Code</a>
           </div>
         </article>
 
@@ -480,35 +570,63 @@
             <div class="tag">Finance</div>
           </div>
           <p>
-            Built project evaluation models to compare investment alternatives using cash-flow
-            forecasts, discounting, and sensitivity analysis.
+            Built project evaluation models to compare investment alternatives using cash-flow forecasts,
+            discounting, and sensitivity analysis.
           </p>
           <ul class="bullets">
-            <li>Calculated NPV and IRR from projected free cash flows and discount rate assumptions.</li>
-            <li>Evaluated working capital changes and terminal value impacts.</li>
-            <li>Explored sensitivity to discount rate/cash-flow drivers for decision support.</li>
+            <li>Computed NPV and IRR from free cash flows and discount rate assumptions.</li>
+            <li>Modeled working capital changes and terminal value impacts.</li>
+            <li>Ran sensitivity checks for decision support (discount rate, growth, margins).</li>
           </ul>
           <div class="chips">
-            <div class="chip">Excel / Modeling</div>
+            <div class="chip">Excel</div>
             <div class="chip">NPV • IRR</div>
             <div class="chip">Sensitivity</div>
           </div>
           <div class="projActions">
-            <button class="smallBtn" onclick="alert('Add your model link (PDF/Excel) here!')">Model</button>
-            <button class="smallBtn" onclick="alert('Add a summary deck link here!')">Summary</button>
+            <a class="smallBtn" href="#" aria-disabled="true" title="Add your model link">Model</a>
+            <a class="smallBtn" href="#" aria-disabled="true" title="Add your summary link">Summary</a>
           </div>
         </article>
       </section>
 
-      <section class="card" style="margin-top:16px" id="contact">
+      <h2 class="sectionTitle" id="skills">Skills</h2>
+
+      <section class="skillsGrid" aria-label="Skills">
+        <div class="card skillCard">
+          <h3>Data & Modeling</h3>
+          <ul class="skillList">
+            <li>Probability modeling, metrics, evaluation</li>
+            <li>Data cleaning, transformation, EDA</li>
+            <li>Statistical thinking for decision-making</li>
+          </ul>
+        </div>
+        <div class="card skillCard">
+          <h3>Tools</h3>
+          <ul class="skillList">
+            <li>Python (pandas, NumPy), R, SQL</li>
+            <li>Excel modeling (NPV/IRR, scenarios)</li>
+            <li>Dashboards and front-end UI basics</li>
+          </ul>
+        </div>
+        <div class="card skillCard">
+          <h3>GIS</h3>
+          <ul class="skillList">
+            <li>ArcGIS Pro: raster + vector workflows</li>
+            <li>Reclassification, weighted overlay</li>
+            <li>Cartographic layouts and reporting</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:16px" id="contact" aria-label="Contact">
         <h2 class="sectionTitle" style="margin:0 0 10px">Contact</h2>
-        <p style="margin:0;color:var(--muted)">
-          If you want this to look even more “resume-ready,” replace the alert buttons with real links
-          (GitHub, demo, PDF reports) and add your email below.
+        <p class="muted" style="margin:0">
+          Replace the placeholders below with your real links and email before you submit.
+          If your professor wants a live site, publish with GitHub Pages.
         </p>
 
         <div class="ctaRow" style="margin-top:14px">
-          <!-- Replace with your real email -->
           <a class="btn primary" href="mailto:YOUR_EMAIL@miami.edu">Email</a>
           <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
@@ -516,16 +634,8 @@
       </section>
 
       <div class="footer">
-        Built by Pedro • Update links + projects as you ship more work.
+        Built by Pedro • <a href="#projects">Back to top</a>
       </div>
     </div>
-
-    <script>
-      function scrollToId(id){
-        const el = document.getElementById(id);
-        if(!el) return;
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    </script>
   </body>
 </html>
